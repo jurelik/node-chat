@@ -23,8 +23,10 @@ rl.on('line', line => {
 socket.on('message', data => {
   if (data.type === 'chat' && data.nick != nick) {
     console.log(data.nick + ': ' + data.message);
+    rl.prompt();
   }
   else if (data.type === 'notice') {
     console.log('NOTICE:' + data.message);
+    rl.prompt();
   }
 })
